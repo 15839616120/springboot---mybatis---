@@ -1,4 +1,4 @@
-package com.imooc.springboot_mybatis.config.dao;
+package com.imooc.demo.config.dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.mybatis.spring.annotation.MapperScan;
@@ -10,7 +10,7 @@ import java.beans.PropertyVetoException;
 
 @Configuration
 //配置mybatis   mapper的扫描路径
-@MapperScan("com.imooc.springboot_mybatis")
+@MapperScan("com.imooc.demo")
 public class DataSourceConfiguration {
 
     @Value("${jdbc.driver}")

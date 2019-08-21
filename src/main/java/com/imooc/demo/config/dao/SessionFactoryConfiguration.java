@@ -1,4 +1,4 @@
-package com.imooc.springboot_mybatis.config.dao;
+package com.imooc.demo.config.dao;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.imooc.springboot_mybatis.entity;
+package com.imooc.demo.entity;
 
 import lombok.Data;
 
