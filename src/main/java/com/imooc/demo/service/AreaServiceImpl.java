@@ -1,6 +1,6 @@
 package com.imooc.demo.service;
 
-import com.imooc.demo.dao.AreaDao;
+import com.imooc.demo.dao.AreaMapper;
 import com.imooc.demo.entity.Area;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AreaService {
+public class AreaServiceImpl {
 
     @Autowired
-    private AreaDao areaDao;
+    private AreaMapper areaDao;
 
     public List<Area> queryArea(){
         List<Area> areas = areaDao.queryArea();

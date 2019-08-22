@@ -1,7 +1,7 @@
 package com.imooc.demo.controller;
 
 import com.imooc.demo.entity.Area;
-import com.imooc.demo.service.AreaService;
+import com.imooc.demo.service.AreaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +12,7 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    private AreaService areaService;
+    private AreaServiceImpl areaService;
 
     //innoDB支持行级锁 myslam不支持
     @RequestMapping("hello")
@@ -24,5 +24,11 @@ public class HelloController {
     public List<Area> queryAll(){
         List<Area> areas = areaService.queryArea();
         return areas;
+    }
+
+    @RequestMapping("queryAreaById")
+    public Area queryAreaById(){
+        Area area = areaService.queryAreaById();
+        return area;
     }
 }

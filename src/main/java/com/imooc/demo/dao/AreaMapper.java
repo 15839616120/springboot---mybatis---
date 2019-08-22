@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface AreaDao {
+public interface AreaMapper {
 
     /**
      *查询区域列表
