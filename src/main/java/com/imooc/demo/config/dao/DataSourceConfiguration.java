@@ -37,7 +37,7 @@ public class DataSourceConfiguration {
         dataSource.setPassword(jdbcPassword);
         // 配置c3p0连接池的私有属性
         // 连接池最大线程数
-        dataSource.setMaxPoolSize(30);
+        dataSource.setMaxPoolSize(100);
         // 连接池最小线程数
         dataSource.setMinPoolSize(10);
         // 关闭连接后不自动commit
