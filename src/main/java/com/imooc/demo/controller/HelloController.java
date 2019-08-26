@@ -31,4 +31,22 @@ public class HelloController {
         Area area = areaService.queryAreaById();
         return area;
     }
+
+    @RequestMapping("insertArea")
+    public Integer insertArea(){
+        int i = areaService.insertArea();
+        return i;
+    }
+
+    @RequestMapping("updateArea")
+    public Integer updateArea(){
+        int i = areaService.updateArea();
+        return i;
+    }
+
+    @RequestMapping("deleteArea")
+    public Integer deleteArea(int areaId){
+        int i = areaService.deleteArea(areaId);
+        return i;
+    }
 }

@@ -2,12 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.imooc.demo.dao.AreaMapper">
 
+    <!--查询区域列表-->
     <select id="queryArea" resultType="com.imooc.demo.entity.Area">
         select * from tb_area order by priority desc;
     </select>
 
+    <!--根据id查询区域-->
     <select id="queryAreaById" resultType="com.imooc.demo.entity.Area">
         select * from tb_area where area_id  = #{areaId};
     </select>
+
+    <!--插入区域信息 default不写需要把列名（area_name，priority，creat_time,last_edit_time）写出来，不然会报列不匹配的错误-->
+    <insert id="insertArea" parameterType="com.imooc.demo.entity.Area" useGeneratedKeys="true" keyProperty="areaId">
+        insert into tb_area values (default,#{areaName},#{priority},#{creatTime},#{lastTime});
+    </insert>
+
+   <!--更新区域信息-->
+    <update id="updateArea" parameterType="com.imooc.demo.entity.Area">
+        update tb_area set priority=#{priority} where area_id  = #{areaId};
+    </update>
+
+    <!--删除区域信息 没有逻辑删除字段，暂时不写了，逻辑和思路与更新一致-->
+    <!--<update id="deleteArea" parameterType="com.imooc.demo.entity.Area">
+        update tb_area set area_name=#{areaName} priority=#{priority} where area_id  = #{areaId};
+    </update>-->
 </mapper>
 
