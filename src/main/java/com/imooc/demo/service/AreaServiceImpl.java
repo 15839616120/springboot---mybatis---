@@ -40,7 +40,7 @@ public class AreaServiceImpl {
         area.setLastTime(format);
         //返回的依然是影响行数
         int i = areaDao.insertArea(area);
-        int a = 1/0 ;
+        //int a = 1/0 ;
         area.setAreaName("南苑11111");
         area.setPriority(4);
         Date date1 = new Date();
@@ -69,7 +69,6 @@ public class AreaServiceImpl {
      */
     public int deleteArea(int areaId){
         int i = areaDao.deleteArea(areaId);
-
         return i;
     };
 }
