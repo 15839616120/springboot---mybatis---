@@ -2,8 +2,10 @@ package com.imooc.demo.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Area {
+public class Area implements Serializable {
     //主键id
     private Integer areaId;
     //名称

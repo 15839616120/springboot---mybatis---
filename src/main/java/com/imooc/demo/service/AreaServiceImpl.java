@@ -4,6 +4,7 @@ import com.imooc.demo.dao.AreaMapper;
 import com.imooc.demo.entity.Area;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +18,21 @@ public class AreaServiceImpl {
     @Autowired
     private AreaMapper areaDao;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     public List<Area> queryArea(){
-        List<Area> areas = areaDao.queryArea();
+        //先看缓存中是否有数据
+        List<Area> areas = (List<Area>)redisTemplate.boundValueOps("Areas").get();
+        //如果有直接取缓存
+        if (null != areas){
+            return areas;
+        }
+        //如果没有查库
+        areas = areaDao.queryArea();
         System.out.println(areas);
+        //再将数据存入到缓存中去
+        redisTemplate.boundValueOps("Areas").set(areas);
         return areas;
     }
 
