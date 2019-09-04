@@ -1,9 +1,8 @@
 package com.imooc.demo.task;
 
 import com.imooc.demo.entity.Area;
-import com.imooc.demo.service.AreaServiceImpl;
+import com.imooc.demo.service.impl.AreaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

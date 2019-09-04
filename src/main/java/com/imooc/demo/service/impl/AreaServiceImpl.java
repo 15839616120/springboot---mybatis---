@@ -1,8 +1,8 @@
-package com.imooc.demo.service;
+package com.imooc.demo.service.impl;
 
 import com.imooc.demo.dao.AreaMapper;
 import com.imooc.demo.entity.Area;
-import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.imooc.demo.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class AreaServiceImpl {
+public class AreaServiceImpl implements AreaService {
 
     @Autowired
     private AreaMapper areaDao;
@@ -21,6 +21,7 @@ public class AreaServiceImpl {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Override
     public List<Area> queryArea(){
         //先看缓存中是否有数据
         List<Area> areas = (List<Area>)redisTemplate.boundValueOps("Areas").get();
@@ -80,8 +81,24 @@ public class AreaServiceImpl {
     /**
      *删除区域信息
      */
+    @Override
     public int deleteArea(int areaId){
         int i = areaDao.deleteArea(areaId);
         return i;
     };
+
+    @Override
+    public Area queryAreaById(int areaId) {
+        return null;
+    }
+
+    @Override
+    public int insertArea(Area area) {
+        return 0;
+    }
+
+    @Override
+    public int updateArea(Area area) {
+        return 0;
+    }
 }
